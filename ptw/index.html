@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+  <!--
+  TODO:
+  - Layout fix.
+  - Fix the layout.
+  - FIX THE FUCKING LAYOUT.
+  - Unicode not acting nice on phone. (Specifically the .sorting arrows)
+  - Rewrite the #total-times bit. Too cluttered.
+  - Use better CSS/JS selectors.
+  -->
+
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MAL PTW</title>
+
+    <meta name="description" content="Find time (in days) it will take to watch everything on one's MAL PTW.">
+    <meta name="author" content="/u/erkghlerngm44">
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300" rel="stylesheet">
+    <style type="text/css">
+      body {
+        font-family: 'Roboto', sans-serif;
+      }
+
+      hr {
+        margin-top: 20px;
+        margin-bottom: 20px;
+      }
+
+      #header p {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+
+      table {
+        border-collapse: collapse;
+      }
+      table, th, td {
+        border: 1px solid black;
+      }
+      th {
+        cursor: pointer;
+        padding: 10px;
+      }
+      td:not(.title) {
+        text-align: center;
+      }
+
+      .sorting-asc:after {
+        content: " ▴";
+      }
+      .sorting-desc:after {
+        content: " ▾";
+      }
+
+      .hidden {
+        display: none;
+      }
+
+      a[href^="#"].sibling-hidden:before {
+        content: "Show";
+      }
+      a[href^="#"]:not(.sibling-hidden):before {
+        content: "Hide";
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="header">
+      <h1>MAL PTW</h1>
+      <p>Find time (in days) it will take to watch everything on one's MAL PTW.</p>
+    </div>
+
+    <hr>
+
+    <div id="form-holder">
+      <form id="form" method="get" action="https://cors-anywhere.herokuapp.com/https://myanimelist.net/malappinfo.php">
+        <label>MAL Username:</label>
+        <input type="text" name="u">
+        <input type="hidden" name="status" value="all">
+        <input type="hidden" name="type" value="anime">
+        <br><br>
+        <input type="submit">
+      </form>
+    </div>
+
+    <p id="result"></p>
+
+    <a href="#details" class="sibling-hidden"> details</a>
+
+    <div id="details" class="hidden">
+      <div id="total-times">
+        <p>Estimated time to complete shows on PTW in mins: <strong id="mins"></strong></p>
+        <p>Which is <strong id="hours"></strong> hours</p>
+        <p>Which equates to around <strong id="days"></strong> days</p>
+      </div>
+      <a href="#table" class="sibling-hidden"> table</a>
+      <table id="table" class="hidden">
+        <thead>
+          <tr>
+            <th data-sort="string">Series Title</th>
+            <th data-sort="int">Episode Length</th>
+            <th data-sort="int">Episode Count</th>
+            <th data-sort="int" title="Note: This is an approximation, using common episode times.">Total Time (Mins)</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/3.51/jquery.form.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/stupidtable/0.0.1/stupidtable.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/x2js/1.2.0/xml2json.min.js"></script>
+    <script src="js/index.js"></script>
+  </body>
+</html>
