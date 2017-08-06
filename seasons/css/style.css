@@ -1,0 +1,44 @@
+body {
+    font-size: 1em;
+    font-family: Roboto, sans-serif;
+
+    /* In case crappy browsers get the wrong idea */
+    background-color: #ffffff;
+}
+
+
+hr {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+
+header p {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+
+ul {
+    /* Remove the padding on the `ul` and apply it to the individual `li`s,
+     * so the `h2`s inside the `ul` don't have any padding */
+    padding-left: 5px;
+    list-style-position: inside;
+}
+li {
+    padding-left: 20px;
+}
+
+
+#status:before {
+    content: "Status:\00a0";
+}
+/* Only show it if there's something in it */
+#status:empty { display: none; }
+
+#status.success {
+    color: #00ff00;
+}
+#status.error {
+    color: #ff0000;
+}

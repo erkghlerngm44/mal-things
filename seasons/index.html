@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Seasons | MAL Things | erkghlerngm44</title>
+
+    <meta name="description" content="Sort all anime on one's MAL by season">
+    <meta name="author" content="erkghlerngm44">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <header>
+        <h1>MAL Seasons</h1>
+        <p>Sort all anime on one's MAL by season</p>
+    </header>
+
+    <hr>
+
+    <form id="form" action="https://cors-anywhere.herokuapp.com/https://myanimelist.net/malappinfo.php">
+        <label for="u">MAL Username:</label>
+        <input id="u" name="u">
+        <input name="status" type="hidden" value="all">
+        <input name="type" type="hidden" value="anime">
+        <br><br>
+        <input type="submit" value="Submit">
+    </form>
+
+    <p id="status"></p>
+
+    <hr>
+
+    <div id="seasons">
+        <!-- To be filled in JS -->
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.2.1/jquery.form.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/x2js/1.2.0/xml2json.min.js"></script>
+    <script src="js/index.js"></script>
+</body>
+
+</html>
