@@ -122,5 +122,10 @@ $("#form").ajaxForm({
 
             return y < x ? 1 : -1
         }).appendTo("#seasons");
+
+        // Alphabetically sort all the anime in each .season
+        // Meh whatever, chaining is fun and I'm too sleepy to
+        // bother breaking this down. It just works, kay?
+        $(".season").each((index, el) => $(el).find("li").sort((a, b) => $(b).text() < $(a).text() ? 1 : -1).appendTo(el))
     }
 });
